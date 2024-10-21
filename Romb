@@ -1,0 +1,31 @@
+fn main() {
+    const SIZE: usize = 6;  // Розмір ромба 
+
+    // Створюємо порожній рядок, щоб зберегти вивід
+    let mut diamond = String::new();
+
+    // Верхня частина ромба
+    for i in 0..SIZE {
+        let spaces = SIZE - i - 1;  // Кількість пробілів
+        let stars = 2 * i + 1;  // Кількість зірок
+
+        // Формуємо рядок для поточного рівня ромба
+        diamond.push_str(&" ".repeat(spaces));
+        diamond.push_str(&"* ".repeat(i + 1).trim_end());  // Додаємо зірки з пробілами
+        diamond.push('\n');
+    }
+
+    // Нижня частина ромба
+    for i in (0..SIZE-1).rev() {
+        let spaces = SIZE - i - 1;  // Кількість пробілів
+        let stars = 2 * i + 1;  // Кількість зірок
+
+        // Формуємо рядок для поточного рівня ромба
+        diamond.push_str(&" ".repeat(spaces));
+        diamond.push_str(&"* ".repeat(i + 1).trim_end());  // Додаємо зірки з пробілами
+        diamond.push('\n');
+    }
+
+    // Виводимо ромб одним println!
+    println!("{}", diamond);
+}
